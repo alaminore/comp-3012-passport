@@ -1,0 +1,28 @@
+<h1 class="mt-4">Admin Space</h1>
+<p class="lead p-1 m-1">You're an admin, <%= user.name %></p>
+<img src="/admin.JPG" alt="admin" class="img-fluid p-1 m-1">
+<h2>Current Session Data:</h2>
+<table class="table table-striped mt-3">
+    <thead>
+      <tr>
+        <th>User ID</th>
+        <th>User Name</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% sessions.forEach(session => { %>
+        <tr>
+          <td><%= session.userId %></td>
+          <td><%= session.userName %></td>
+          <td>
+            <form action="/revoke-session" method="POST" class="d-inline">
+              <input type="hidden" name="sessionId" value="<%= session.id %>">
+              <button type="submit" class="btn btn-danger btn-sm">Revoke</button>
+            </form>
+          </td>
+        </tr>
+      <% }); %>
+    </tbody>
+  </table>
+<a href="/auth/logout" class="btn btn-secondary">Logout</a>
