@@ -22,10 +22,8 @@ router.get("/logout", (req, res) => {
     });
     res.redirect("/auth/login");
 });
-console.log("Registering /github route");
-router.get('github', passport_1.default.authenticate('github', { scope: ['user:email'] }));
-console.log("Registering /github/callback route");
-router.get('github/callback', passport_1.default.authenticate('github', { failureRedirect: '/auth/login' }), function (req, res) {
+router.get("/github", passport_1.default.authenticate('github', { scope: ['user:email'] }));
+router.get("/github/callback", passport_1.default.authenticate('github', { failureRedirect: '/auth/login' }), function (req, res) {
     // Successful authentication, redirect home.
     res.redirect('/dashboard');
 });

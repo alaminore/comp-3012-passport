@@ -9,6 +9,8 @@ const express_ejs_layouts_1 = __importDefault(require("express-ejs-layouts"));
 const express_session_1 = __importDefault(require("express-session"));
 const path_1 = __importDefault(require("path"));
 const passportMiddleware_1 = __importDefault(require("./middleware/passportMiddleware"));
+const authRoute_1 = __importDefault(require("./routes/authRoute"));
+const indexRoute_1 = __importDefault(require("./routes/indexRoute"));
 const port = process.env.port || 8000;
 const app = (0, express_1.default)();
 app.set("view engine", "ejs");
@@ -23,8 +25,6 @@ app.use((0, express_session_1.default)({
         maxAge: 24 * 60 * 60 * 1000,
     },
 }));
-const authRoute_1 = __importDefault(require("./routes/authRoute"));
-const indexRoute_1 = __importDefault(require("./routes/indexRoute"));
 // Middleware for express
 app.use(express_1.default.json());
 app.use(express_ejs_layouts_1.default);

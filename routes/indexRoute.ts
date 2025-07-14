@@ -4,7 +4,7 @@ import { ensureAuthenticated, isAdmin } from "../middleware/checkAuth";
 
 
 router.get("/", (req, res) => {
-  res.send("welcome");
+  res.redirect("/auth/login");
 });
 
 router.get("/dashboard", ensureAuthenticated, (req, res) => {

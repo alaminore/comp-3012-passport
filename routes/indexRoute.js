@@ -16,7 +16,7 @@ const express_1 = __importDefault(require("express"));
 const router = express_1.default.Router();
 const checkAuth_1 = require("../middleware/checkAuth");
 router.get("/", (req, res) => {
-    res.send("welcome");
+    res.redirect("/auth/login");
 });
 router.get("/dashboard", checkAuth_1.ensureAuthenticated, (req, res) => {
     res.render("dashboard", {
